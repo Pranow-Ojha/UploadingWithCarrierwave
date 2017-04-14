@@ -1,0 +1,32 @@
+<%= form_for post do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+ 
+  <div>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </div>
+ 
+  <div>
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+    <%= f.hidden_field :image_cache %>
+  </div>
+
+  <% if post.image? %>
+    <%= image_tag post.image.thumb.url %>
+  <div>
+    <%=label_tag :remove_image do%>
+    Delete Image
+    <%=f.check_box :remove_image%>
+  <% end %>
+  </div> 
+  <%end%> 
+
+
+  <%#= render :partial=> 'shared/form', object: post %>
+ 
+  <%= f.submit %>
+<% end %>

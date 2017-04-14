@@ -1,0 +1,7 @@
+<%= f.label :image %>
+<%= f.file_field :image %><br>
+<%= f.hidden_field :image_cache %>
+
+<% if post.image? %>
+    <%= image_tag post.image.thumb.url %>
+<% end %>
